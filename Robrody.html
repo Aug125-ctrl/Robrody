@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Robrody</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Cor de fundo padrão */
+            transition: background-color 0.3s ease; /* Transição suave ao mudar o fundo */
+        }
+        body.dark-mode {
+            background-color: #1e2124; /* Cor de fundo no modo escuro */
+            color: #fff; /* Cor do texto no modo escuro */
+        }
+        header {
+            background-color: #232527;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            width: 40px; /* ajuste o tamanho da imagem conforme necessário */
+            margin-right: 10px;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+            color: #555; /* Cor do texto nos itens */
+        }
+        .item img {
+            max-width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .item:hover {
+            transform: scale(1.05);
+        }
+        .item h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .item p {
+            color: #555;
+        }
+        .item button {
+            background-color: #00a2ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .item button:hover {
+            background-color: #007acc;
+        }
+        .item .price {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        .brodybux {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1000; /* Certifica-se de que está acima de outros elementos */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="brody.png" alt="Ícone do Catálogo">
+        <h1>Catálogo Robrody</h1>
+    </header>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Modo Escuro</button>
+    <div class="brodybux" id="brodybux-display">BrodyBux: 100,000,000</div>
+    <div class="catalog">
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/b777b000fdd67dd35ff332725e4e3a94/420/420/Hat/Webp" alt="Item 1">
+            <h3>Cabeção FVM</h3>
+            <p>Todos os seus amigos vão dizer "Mas o que é isso?!?!" e "Tá maluco?"</p>
+            <div class="price">Preço: 125 BrodyBux</div>
+            <button onclick="comprarItem(125)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/8c68cdf2f54fffcf73078a570b055a90/420/420/Gear/Webp" alt="Item 2">
+            <h3>Pizza de Pepperoni</h3>
+            <p>Nham, nham, nham. Pizza é uma delícia.</p>
+            <div class="price">Preço: 101 BrodyBux</div>
+            <button onclick="comprarItem(101)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/52ced757b04ddd3c0bab8b6ef7343175/420/420/Hat/Webp" alt="Item 3">
+            <h3>Dominus Praefectus</h3>
+            <p>Eu vim, eu vi, eu conquistei</p>
+            <div class="price">Preço: 649.998 BrodyBux</div>
+            <button onclick="comprarItem(649998)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/75623595c79621178ccc0186a29f3db7/420/420/Hat/Webp" alt="Item 3">
+            <h3>Sr. Robô</h3>
+            <p>Você descobre que ele é um robô quando dá bom-dia e ele responde "Bip bip bop"!</p>
+            <div class="price">Preço: 85 BrodyBux</div>
+            <button onclick="comprarItem(85)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/1f25ac226e767b9f4dcf58022c77a7a6/420/420/Hat/Webp" alt="Item 3">
+            <h3>Palhaço Bozo</h3>
+            <p>Melhor não ver o que tem no porta-malas dele.</p>
+            <div class="price">Preço: 99 BrodyBux</div>
+            <button onclick="comprarItem(99)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/02787f8bb78ea27fc8333e3d1ac7175d/420/420/Hat/Webp" alt="Item 3">
+            <h3>Chapéu de frango</h3>
+            <p>Um chapéu de frango estilizado para estar sempre com você e mantê-lo com aparência épica.</p>
+            <div class="price">Preço: 85 BrodyBux</div>
+            <button onclick="comprarItem(85)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/3af443306dde80406651fd9c35afffba/420/420/Hat/Webp" alt="Item 1">
+            <h3>Chef Gourmet</h3>
+            <p>A comida está crua!</p>
+            <div class="price">Preço: 85 BrodyBux</div>
+            <button onclick="comprarItem(85)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/d7acddf66ec9e67ae1fd4737d28a4234/420/420/Hat/Webp" alt="Item 2">
+            <h3>Violão</h3>
+            <p>Toque suas músicas e melodias.</p>
+            <div class="price">Preço: 130 BrodyBux</div>
+            <button onclick="comprarItem(130)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/bb4148a4d9e37d422f8dfb91325a26c7/420/420/Hat/Webp" alt="Item 3">
+            <h3>Dominus Infernus</h3>
+            <p>Então a glória do mundo...</p>
+            <div class="price">Preço: 77.777.777 BrodyBux</div>
+            <button onclick="comprarItem(77777777)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/56b790aaa90b0f7dd222a40ac5df8fcc/420/420/Hat/Webp" alt="Item 3">
+            <h3>Óculos 3D Retrô</h3>
+            <p>UAU! Tá tudo azul e vermelho, e ainda vindo na minha direção!</p>
+            <div class="price">Preço: 85 BrodyBux</div>
+            <button onclick="comprarItem(85)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/6f2b699f144dbcaed6e2a51c6502a41c/420/420/Hat/Webp" alt="Item 3">
+            <h3>Balde Ninja</h3>
+            <p>Tenho um balde.... Ninja!</p>
+            <div class="price">Preço: 85 BrodyBux</div>
+            <button onclick="comprarItem(85)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/a5dbd8199dc88a260487e102a1c3ee8b/420/420/Hat/Webp" alt="Item 3">
+            <h3>Boné de Beisebol Verde</h3>
+            <p>Você é um magnata promissor no Robrody? Ainda não tem como comprar uma cartola? Mostre aos outros o seu empreendedorismo lutador e a vontade de ganhar dinheiro com este boné berrante.</p>
+            <div class="price">Preço: 85 BrodyBux</div>
+            <button onclick="comprarItem(85)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/ba1b6ff30938392ee184ccc1beecb186/420/420/Hat/Webp" alt="Item 3">
+            <h3>Coroa de Dominó</h3>
+            <p>Esta coroa dourada foi o prêmio do Concurso de Construção Encontro do Dominó realizado em junho de 2007. Talvez a sua característica mais única seja sua capacidade de inspirar admiração em quem a observa, enquanto, ao mesmo tempo, quem usa fica ridículo.</p>
+            <div class="price">Preço: 68.686.868.686 BrodyBux</div>
+            <button onclick="comprarItem(68686868686)">Comprar</button>
+        </div>
+        <div class="item">
+            <img src="https://tr.rbxcdn.com/70e9c407de032c1502730918300f9daa/420/420/Hat/Webp" alt="Item 3">
+            <h3>Capassaque Viking</h3>
+            <p>Ele veio saquear seu vilarejo.</p>
+            <div class="price">Preço: 125 BrodyBux</div>
+            <button onclick="comprarItem(125)">Comprar</button>
+        </div>
+        <!-- Adicione mais itens conforme necessário -->
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+
+        let brodybuxAmount = 100000000; // Quantidade inicial de BrodyBux
+
+        function comprarItem(preco) {
+            if (brodybuxAmount >= preco) {
+                brodybuxAmount -= preco;
+                document.getElementById('brodybux-display').textContent = `BrodyBux: ${brodybuxAmount.toLocaleString()}`;
+                // Reproduzir um som ao comprar
+                var audio = new Audio('cash.mp3');
+                audio.play();
+            } else {
+                alert('Você não tem BrodyBux suficientes para comprar este item!');
+            }
+        }
+    </script>
+</body>
+</html>
